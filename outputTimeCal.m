@@ -1,10 +1,3 @@
-clear;
-close all;
-load spation2.mat inputWeight allPSPTrain allOsc outputColumn
-initParameter;
-load data22.mat
-sysinput = 1000;
-sampleNum = length(inputLablesCell);
 outputTime = nt*ones(sampleNum,activeNum);
 targetColumn = zeros(sampleNum,activeNum);
 classNum = sampleNum;
@@ -77,7 +70,5 @@ for word = 1:sampleNum
     end
    
 end
-% str = 'spation';
-% str = [str,columnNum];
-% str = [str,'.mat'];
-% save(str,'inputWeight','allPSPTrain','allOsc','outputColumn','outputTime'); 
+str = 'spation1000.mat';
+save(str,'inputWeight','allPSPTrain','allOsc','outputColumn','outputTime'); 

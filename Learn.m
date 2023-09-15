@@ -5,8 +5,7 @@ initParameter;
 load data1000.mat;
 load spation1000.mat
 neuronNum = 32;
-sysinput = 1000;
-% load littledata.mat
+sysinput = 100;
 seqenceLen = size(sequence,1);                %训练的序列
 wordLen = size(sequence,2);                   %每个序列的最大长度
 seqenceLen = 1000;                                       %训练的句子数量

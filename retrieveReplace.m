@@ -13,9 +13,9 @@ for seq = 1:seqenceLen
 end
 
 %% 测试序列的生成
-trail = 1;
+trail = 5;
 repNumList = 1:9;
-for testRepN = 8:9
+for testRepN = 1:9
     repNum = repNumList(testRepN);
     seqenceNum = size(sequence,1);
     %% 存储正确率
