@@ -1,0 +1,40 @@
+
+clear
+clc
+fid=fopen('new_cbt_10words.txt');  %打开文本文件
+idx=0;
+inputLablesCell = {};
+sequenceCell = {};
+text = cell(100, 1);
+num = 0;
+while ~feof(fid)
+    str = fgetl(fid);      % 读取一行, str是字符串
+    s=regexp(str,'\s+');   % 找出str中的空格, 以空格作为分割数据的字符
+    s = [0,s];             % 第一个单词的空格为0
+    num = num+1;
+    for i=1:length(s)      % 将该句的所有单词全部存下来
+        %% 1.1 获取第i单词的字符串
+        if i~=length(s)
+            currentStr = str(s(i)+1:s(i+1)-1);
+        else
+            currentStr = str(s(i)+1:end);
+        end
+        text{}
+        %% 1.2 存储单词i的标签，存储过就找到存储的位置，没有就新建一个
+        hasSave = 0;                           %单词是否被存储过，0没有，1有
+        for j = 1:length(inputLablesCell)      %遍历所有存储过的单词
+            preStr = inputLablesCell{j};       %第j个单词的字符串
+            strSim = strcmp(currentStr,preStr);%比较当前单词和之前单词的相似度
+            if strSim == 1                     %若完全相同
+                hasSave = 1;                   %以前存储过
+                break;                         %返回
+            end
+        end
+        if hasSave == 0                         %未存储过
+            inputLablesCell{end+1} = currentStr;          %新单词分配标签
+            sequenceCell{idx,i} = length(inputLablesCell);%当前句子单词i的位置填上标签
+        else                                    %存储过
+            sequenceCell{idx,i} = j;            %使用以前的标签
+        end
+    end
+end

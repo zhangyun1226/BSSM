@@ -1,0 +1,2 @@
+# LUMAKG
+run testTest.m
