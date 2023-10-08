@@ -5,4 +5,5 @@ This code is used in Table VI of the paper ‘A Bionic Spiking Sequence Memory M
 3. HTM0406-1 is the code for the HTM, which is a minicolumn-based sequence model.
 4. LSNN&SNN+LIF is the code for the model LSNN and SNN+LIF, which are SNN-based sequence model.
 5. Lstm2023 is the code for the LSTM, which is the traditional deep model.
+
 If you need to use any of the above codes, please cite our work: A Bionic Spiking Sequence Memory Model with Minicolumns, Dendrites and Oscillation.
